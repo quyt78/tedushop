@@ -60,10 +60,21 @@ namespace TeduShop.Data.Infastructure
             return dbSet.Find(id);
         }
 
-        public virtual IEnumerable<T> GetManyt(Expression<Func<T, bool>> where, string includes)
+        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
         {
             return dbSet.Where(where).ToList();
         }
+
+        public virtual int Count(Expression<Func<T, bool>> where)
+        {
+            return dbSet.Count(where);
+        }
+      
+        public virtual T GetSingleById(int id)
+        {
+            return dbSet.Find(id);
+        }
+
         public IQueryable<T> GetAll(string[] includes = null)
         {
             // Handle includes for associated object if Applicable
