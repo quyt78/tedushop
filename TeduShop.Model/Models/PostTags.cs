@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TeduShop.Model.Models
 {
     [Table("PostTags")]
-    public class PostTags
+    public class PostTag
     {
         [Key]
         [Column(Order = 1)]

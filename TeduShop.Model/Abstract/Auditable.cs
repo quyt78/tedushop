@@ -15,5 +15,7 @@ namespace TeduShop.Model.Astract
 
         [MaxLength(256)]
         public string UpdatedBy { get; set; }
+
+        public bool Status { get; set; }
     }
 }

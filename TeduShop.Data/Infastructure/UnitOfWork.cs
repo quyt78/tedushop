@@ -8,7 +8,8 @@ namespace TeduShop.Data.Infastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IDbFactory dbFactory;
+        private readonly IDbFactory dbFactory ;
+            
 
         private TeduShopDbContext dbContext;
 

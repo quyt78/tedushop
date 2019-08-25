@@ -8,5 +8,6 @@ namespace TeduShop.Model.Abstract
         string CreatedBy { get; set; }
         DateTime? UpdatedDate { get; set; }
         string UpdatedBy { get; set; }
+        bool Status { get; set; }
     }
 }

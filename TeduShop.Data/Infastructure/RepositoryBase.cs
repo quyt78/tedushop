@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Data.Infastructure
 {
-    public abstract class RepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
         private TeduShopDbContext dataContext;
@@ -46,6 +46,11 @@ namespace TeduShop.Data.Infastructure
             dbSet.Remove(entity);
         }
 
+        public virtual void Delelte(int id)
+        {
+            var entity = dbSet.Find(id);
+            dbSet.Remove(entity);
+        }
         public virtual void DeleteMulti(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
@@ -139,7 +144,13 @@ namespace TeduShop.Data.Infastructure
         {
             return dataContext.Set<T>().Count<T>(predicate) > 0;
         }
-        #endregion 
+
+        public void Delete(int id)
+        {
+            var entity = dbSet.Find(id);
+            dbSet.Remove(entity);
+        }
+        #endregion
     }
 
 }
